@@ -6,7 +6,9 @@
   <div class="mat-elevation-z8 col-flex">
     <app-clientes-list
     *ngIf="clientes$ | async as clientes; else loading"
-    [clientes]="clientes">
+    [clientes]="clientes"
+    (add)="onAdd()"
+    (edit)="onEdit($event)">
     </app-clientes-list>
 
     <ng-template #loading>

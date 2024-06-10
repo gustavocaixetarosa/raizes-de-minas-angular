@@ -31,7 +31,11 @@
     </mat-header-cell>
 
     <mat-cell *matCellDef="let cliente" class="action-col">
-      <button mat-icon-button color="primary" aria-label="Editar um cliente">
+      <button
+      mat-icon-button
+      color="primary"
+      aria-label="Editar um cliente"
+      (click)="onEdit(cliente)">
         <mat-icon>edit</mat-icon>
       </button>
 

@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { ClientesRoutingModule } from './clientes-routing.module';
-import { ClientesComponent } from './clientes/clientes.component';
-import { ClienteFormComponent } from './cliente-form/cliente-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ClientesListComponent } from './clientes-list/clientes-list.component';
+import { ClientesListComponent } from './components/clientes-list/clientes-list.component';
+import { ClienteFormComponent } from './containers/cliente-form/cliente-form.component';
+import { ClientesComponent } from './containers/clientes/clientes.component';
+import { ClientesService } from './services/clientes.service';
 
 
 
@@ -15,7 +16,7 @@ import { ClientesListComponent } from './clientes-list/clientes-list.component';
   declarations: [
     ClientesComponent,
     ClienteFormComponent,
-    ClientesListComponent
+    ClientesListComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +24,7 @@ import { ClientesListComponent } from './clientes-list/clientes-list.component';
     AppMaterialModule,
     SharedModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [ClientesService]
 })
 export class ClientesModule { }

@@ -1,6 +1,6 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, first, take, tap } from 'rxjs';
+import { first, tap } from 'rxjs';
 
 import { Cliente } from '../model/cliente';
 
@@ -10,18 +10,34 @@ import { Cliente } from '../model/cliente';
 export class ClientesService {
 
   private API = 'api/clientes';
-  constructor(private httpCliente: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   list() {
-    return this.httpCliente.get<Cliente[]>(this.API)
+    return this.httpClient.get<Cliente[]>(this.API)
     .pipe(
       first(),
-      delay(500),
       tap(clientes => console.log(clientes))
     );
   }
 
-  save(record: Cliente) {
-    return this.httpCliente.post<Cliente>(this.API, record);//.pipe(first())
+  loadById(id: number) {
+    return this.httpClient.get<Cliente>(`${this.API}/${id}`);
+  }
+
+  save(record: Partial<Cliente>) {
+    
+    if (record.id) {
+      return this.update(record);
+    }
+    console.log('TESTE DE CRIAR');
+    return this.create(record);
+  }
+
+  private create(record: Partial<Cliente>){
+    return this.httpClient.post<Cliente>(this.API, record).pipe(first());
+  }
+
+  private update(record: Partial<Cliente>) {
+    return this.httpClient.put<Cliente>(`${this.API}/${record.id}`, record).pipe(first());
   }
 }

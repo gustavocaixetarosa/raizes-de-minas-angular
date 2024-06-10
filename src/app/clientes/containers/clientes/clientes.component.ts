@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 
-import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
-import { Cliente } from '../model/cliente';
-import { ClientesService } from '../services/clientes.service';
-import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
+import { Cliente } from '../../model/cliente';
+import { ClientesService } from '../../services/clientes.service';
 
 @Component({
   selector: 'app-clientes',
@@ -33,19 +33,20 @@ export class ClientesComponent implements OnInit{
   }
 
   onAdd() {
-    this.router.navigate(['new'], {relativeTo: this.route})
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 
-  onError(errorMsg: String)  {
+  onEdit(cliente: Cliente) {
+    this.router.navigate(['edit', cliente.id], {relativeTo: this.route});
+  }
+
+  onError(errorMsg: string)  {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
     })
   }
 
-  ngOnInit(): void {
-
-  }
 
 
-
+  ngOnInit(): void{};
 }
