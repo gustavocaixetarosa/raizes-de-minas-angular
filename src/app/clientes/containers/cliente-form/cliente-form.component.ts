@@ -50,6 +50,7 @@ export class ClienteFormComponent {
     this._snackBar.open('Cliente cadastrado com sucesso', '', {
       duration: 5000,
     });
+    this.onCancel();
   }
 
   private onError() {

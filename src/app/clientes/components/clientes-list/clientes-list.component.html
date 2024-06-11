@@ -39,7 +39,12 @@
         <mat-icon>edit</mat-icon>
       </button>
 
-      <button mat-icon-button color="warn" aria-label="Remover um cliente">
+      <button
+      mat-icon-button
+      color="warn"
+      aria-label="Remover um cliente"
+      (click)="onDelete(cliente)"
+      >
         <mat-icon>person-remove</mat-icon>
       </button>
     </mat-cell>

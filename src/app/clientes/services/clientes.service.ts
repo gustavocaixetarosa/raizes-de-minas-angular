@@ -39,4 +39,8 @@ export class ClientesService {
   private update(record: Partial<Cliente>) {
     return this.httpClient.put<Cliente>(`${this.API}/${record.id}`, record).pipe(first());
   }
+
+  public delete(id: number) {
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+  }
 }

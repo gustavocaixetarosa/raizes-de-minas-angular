@@ -9,6 +9,7 @@ import { ClientesListComponent } from './components/clientes-list/clientes-list.
 import { ClienteFormComponent } from './containers/cliente-form/cliente-form.component';
 import { ClientesComponent } from './containers/clientes/clientes.component';
 import { ClientesService } from './services/clientes.service';
+import { ConfirmationDialogComponent } from '../shared/components/confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -16,7 +17,7 @@ import { ClientesService } from './services/clientes.service';
   declarations: [
     ClientesComponent,
     ClienteFormComponent,
-    ClientesListComponent,
+    ClientesListComponent
   ],
   imports: [
     CommonModule,
