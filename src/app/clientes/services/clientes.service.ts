@@ -25,11 +25,10 @@ export class ClientesService {
   }
 
   save(record: Partial<Cliente>) {
-    
+
     if (record.id) {
       return this.update(record);
     }
-    console.log('TESTE DE CRIAR');
     return this.create(record);
   }
 
