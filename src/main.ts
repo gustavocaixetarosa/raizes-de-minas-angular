@@ -1,22 +1,23 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
-import { AppComponent } from './app/app.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
-import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { AppRoutingModule } from './app/app-routing.module';
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+
+import { AppComponent } from './app/app.component';
+import { APP_ROUTES } from './app/app.routes';
+
 
 
 bootstrapApplication(AppComponent, {
     providers: [
-        importProvidersFrom(BrowserModule, AppRoutingModule, MatToolbarModule, NgxMaskDirective, NgxMaskPipe, MatSidenavModule),
+        importProvidersFrom(BrowserModule, MatToolbarModule, NgxMaskDirective, NgxMaskPipe, MatSidenavModule),
         provideAnimationsAsync(),
-        provideHttpClient(withInterceptorsFromDi())
+        provideHttpClient(withInterceptorsFromDi()),
+        provideRouter(APP_ROUTES, withPreloading(PreloadAllModules))
     ]
 })
   .catch(err => console.error(err));
