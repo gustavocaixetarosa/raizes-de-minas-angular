@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { Cliente } from './../../model/cliente';
   templateUrl: './cliente-form.component.html',
   styleUrl: './cliente-form.component.scss',
 })
-export class ClienteFormComponent {
+export class ClienteFormComponent implements OnInit{
 
   form!: FormGroup;
 
@@ -29,7 +29,7 @@ export class ClienteFormComponent {
     console.log(cliente)
     this.form = this.formBuilder.group({
       id: [cliente.id],
-      nome: [cliente.nome],
+      nome: [cliente.nome, [Validators.required, Validators.minLength(4), Validators.maxLength(35)]],
       endereco: [cliente.endereco],
       telefone: [cliente.telefone]
     })

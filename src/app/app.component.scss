@@ -1,0 +1,16 @@
+.container-button {
+  display: block;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.container-toolbar {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  justify-items: flex-end;
+}
+
+button {
+  margin-left: 25px;
+}

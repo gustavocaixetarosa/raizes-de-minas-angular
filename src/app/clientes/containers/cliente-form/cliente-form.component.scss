@@ -7,11 +7,12 @@ mat-toolbar {
   justify-content:flex-start;
   align-content: 25px;
   margin-bottom: 16px;
+  max-width: 70%;
 }
 
 mat-card {
-  margin: 2em auto;
-  width: 75%;
+  margin: 3em auto;
+  max-width: 60%;
   justify-content: center;
 }
 
