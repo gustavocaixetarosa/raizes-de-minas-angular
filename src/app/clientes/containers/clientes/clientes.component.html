@@ -4,13 +4,18 @@
   </mat-toolbar>
 
   <div class="mat-elevation-z8 col-flex">
-    <app-clientes-list
-    *ngIf="clientes$ | async as clientes; else loading"
-    [clientes]="clientes"
-    (add)="onAdd()"
-    (edit)="onEdit($event)"
-    (delete)="onDelete($event)">
-    </app-clientes-list>
+    @if (clientes$ | async; as clientes) {
+      <app-clientes-list
+        [clientes]="clientes"
+        (add)="onAdd()"
+        (edit)="onEdit($event)"
+        (delete)="onDelete($event)">
+      </app-clientes-list>
+    } @else {
+      <div class="loading-spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+    }
 
     <ng-template #loading>
       <div class="loading-spinner">
