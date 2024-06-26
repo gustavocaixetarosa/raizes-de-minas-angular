@@ -1,16 +1,32 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 
 import { ClientesService } from '../../services/clientes.service';
 import { Cliente } from './../../model/cliente';
+import { MatButton } from '@angular/material/button';
+import { MatInput } from '@angular/material/input';
+import { MatFormField } from '@angular/material/form-field';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatCard, MatCardContent, MatCardActions } from '@angular/material/card';
 
 @Component({
-  selector: 'app-cliente-form',
-  templateUrl: './cliente-form.component.html',
-  styleUrl: './cliente-form.component.scss',
+    selector: 'app-cliente-form',
+    templateUrl: './cliente-form.component.html',
+    styleUrl: './cliente-form.component.scss',
+    standalone: true,
+    imports: [
+        MatCard,
+        MatToolbar,
+        MatCardContent,
+        ReactiveFormsModule,
+        MatFormField,
+        MatInput,
+        MatCardActions,
+        MatButton,
+    ],
 })
 export class ClienteFormComponent implements OnInit{
 

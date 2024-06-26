@@ -8,17 +8,15 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
 
 
 @NgModule({
-  declarations: [
-    ErrorDialogComponent,
-    ConfirmationDialogComponent
-  ],
-  imports: [
-    CommonModule,
-    AppMaterialModule
-  ],
-  exports: [
-    ErrorDialogComponent,
-    ConfirmationDialogComponent
-  ]
+    imports: [
+        CommonModule,
+        AppMaterialModule,
+        ErrorDialogComponent,
+        ConfirmationDialogComponent
+    ],
+    exports: [
+        ErrorDialogComponent,
+        ConfirmationDialogComponent
+    ]
 })
 export class SharedModule { }

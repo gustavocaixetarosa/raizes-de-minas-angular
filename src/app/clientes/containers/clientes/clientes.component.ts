@@ -8,11 +8,18 @@ import { ErrorDialogComponent } from '../../../shared/components/error-dialog/er
 import { Cliente } from '../../model/cliente';
 import { ClientesService } from '../../services/clientes.service';
 import { ConfirmationDialogComponent } from '../../../shared/components/confirmation-dialog/confirmation-dialog.component';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { ClientesListComponent } from '../../components/clientes-list/clientes-list.component';
+import { NgIf, AsyncPipe } from '@angular/common';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatCard } from '@angular/material/card';
 
 @Component({
-  selector: 'app-clientes',
-  templateUrl: './clientes.component.html',
-  styleUrl: './clientes.component.scss'
+    selector: 'app-clientes',
+    templateUrl: './clientes.component.html',
+    styleUrl: './clientes.component.scss',
+    standalone: true,
+    imports: [MatCard, MatToolbar, NgIf, ClientesListComponent, MatProgressSpinner, AsyncPipe]
 })
 export class ClientesComponent implements OnInit{
 

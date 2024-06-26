@@ -13,18 +13,16 @@ import { ClientesService } from './services/clientes.service';
 
 
 @NgModule({
-  declarations: [
-    ClientesComponent,
-    ClienteFormComponent,
-    ClientesListComponent
-  ],
-  imports: [
-    CommonModule,
-    ClientesRoutingModule,
-    AppMaterialModule,
-    SharedModule,
-    ReactiveFormsModule
-  ],
-  providers: [ClientesService]
+    imports: [
+        CommonModule,
+        ClientesRoutingModule,
+        AppMaterialModule,
+        SharedModule,
+        ReactiveFormsModule,
+        ClientesComponent,
+        ClienteFormComponent,
+        ClientesListComponent
+    ],
+    providers: [ClientesService]
 })
 export class ClientesModule { }
