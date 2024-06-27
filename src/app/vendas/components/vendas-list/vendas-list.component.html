@@ -1,0 +1,68 @@
+<mat-table [dataSource]="vendas">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let venda">{{ venda.nome }}</mat-cell>
+  </ng-container>
+
+  <!-- endereco Column -->
+  <ng-container matColumnDef="valorTotal">
+    <mat-header-cell *matHeaderCellDef>Valor Total</mat-header-cell>
+    <mat-cell *matCellDef="let venda">{{ venda.valorTotal }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="quantidadeTotal">
+    <mat-header-cell *matHeaderCellDef>Quantidade Total</mat-header-cell>
+    <mat-cell *matCellDef="let venda">{{ venda.quantidadeTotal }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="dataVenva">
+    <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
+    <mat-cell *matCellDef="let venda">{{ venda.dataVenva }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="formaDePagamento">
+    <mat-header-cell mat-header-cell *matHeaderCellDef>Forma De Pagamento</mat-header-cell>
+    <mat-cell *matCellDef="let venda">{{ venda.formaDePagamento }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cliente">
+    <mat-header-cell mat-header-cell *matHeaderCellDef>Cliente</mat-header-cell>
+    <mat-cell *matCellDef="let venda">{{ venda.cliente }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-col-header">
+      <button
+        mat-mini-fab
+        color="accent"
+        aria-label="Adicionar Venda"
+        (click)="onAdd()"
+      >
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let venda" class="action-col">
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Editar uma venda"
+        (click)="onEdit(venda)"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        color="warn"
+        aria-label="Remover uma venda"
+        (click)="onDelete(venda)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

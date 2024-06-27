@@ -23,3 +23,8 @@ mat-card {
   margin-left: 10px;
  }
 
+ .field-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+ }

@@ -1,8 +1,9 @@
 import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
-import { ClientesService } from '../services/clientes.service';
-import { Cliente } from '../model/cliente';
 import { of } from 'rxjs';
+
+import { Cliente } from '../model/cliente';
+import { ClientesService } from '../services/clientes.service';
 
 export const clienteResolver: ResolveFn<Cliente> = (route, state) => {
   const clienteId = route.paramMap.get('id');

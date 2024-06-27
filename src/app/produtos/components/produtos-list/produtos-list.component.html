@@ -1,0 +1,58 @@
+<mat-table [dataSource]="produtos">
+  <ng-container matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+    <mat-cell *matCellDef="let produto">{{ produto.nome }}</mat-cell>
+  </ng-container>
+
+  <!-- endereco Column -->
+  <ng-container matColumnDef="peso">
+    <mat-header-cell *matHeaderCellDef>Peso</mat-header-cell>
+    <mat-cell *matCellDef="let produto">{{ produto.peso }}</mat-cell>
+  </ng-container>
+
+  <!-- telefone Column -->
+  <ng-container matColumnDef="quantidade">
+    <mat-cell mat-header-cell *matHeaderCellDef>Quantidade</mat-cell>
+    <mat-cell *matCellDef="let produto">{{ produto.quantidade }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="descricao">
+    <mat-cell mat-header-cell *matHeaderCellDef>Descricao</mat-cell>
+    <mat-cell *matCellDef="let produto">{{ produto.descricao }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-col-header">
+      <button
+        mat-mini-fab
+        color="accent"
+        aria-label="Adicionar produto"
+        (click)="onAdd()"
+      >
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let produto" class="action-col">
+      <button
+      mat-icon-button
+      color="primary"
+      aria-label="Editar um produto"
+      (click)="onEdit(produto)">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button
+      mat-icon-button
+      color="warn"
+      aria-label="Remover um produto"
+      (click)="onDelete(produto)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

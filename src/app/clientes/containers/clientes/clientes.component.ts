@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component } from '@angular/core';
+import { MatCard } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatToolbar } from '@angular/material/toolbar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 
+import { ConfirmationDialogComponent } from '../../../shared/components/confirmation-dialog/confirmation-dialog.component';
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
+import { ClientesListComponent } from '../../components/clientes-list/clientes-list.component';
 import { Cliente } from '../../model/cliente';
 import { ClientesService } from '../../services/clientes.service';
-import { ConfirmationDialogComponent } from '../../../shared/components/confirmation-dialog/confirmation-dialog.component';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { ClientesListComponent } from '../../components/clientes-list/clientes-list.component';
-import { AsyncPipe } from '@angular/common';
-import { MatToolbar } from '@angular/material/toolbar';
-import { MatCard } from '@angular/material/card';
 
 @Component({
     selector: 'app-clientes',
@@ -21,7 +21,7 @@ import { MatCard } from '@angular/material/card';
     standalone: true,
     imports: [MatCard, MatToolbar, ClientesListComponent, MatProgressSpinner, AsyncPipe]
 })
-export class ClientesComponent implements OnInit{
+export class ClientesComponent{
 
   clientes$!: Observable<Cliente[]>;
   displayedColumns = ['nome', 'endereco', 'telefone','actions'];
@@ -79,6 +79,4 @@ export class ClientesComponent implements OnInit{
       data: errorMsg
     })
   }
-
-  ngOnInit(): void{};
 }

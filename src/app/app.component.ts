@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { MatToolbar } from '@angular/material/toolbar';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
     standalone: true,
-    imports: [MatToolbar, RouterOutlet]
+    imports: [MatToolbar, RouterOutlet, RouterLink]
 })
 export class AppComponent {
   title = 'raizes-de-minas';
+
+  constructor(){
+
+  }
 }

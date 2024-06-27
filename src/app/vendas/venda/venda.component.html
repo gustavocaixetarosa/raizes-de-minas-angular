@@ -1,16 +1,16 @@
 <mat-card>
   <mat-toolbar color="primary">
-    <span>Produtos</span>
+    <span>Vendas</span>
   </mat-toolbar>
 
   <div class="mat-elevation-z8 col-flex">
-    @if (produtos$ | async; as Produtos) {
-      <app-produtos-list
-        [produtos]="Produtos"
+    @if (vendas$ | async; as Vendas) {
+      <!-- <app-vendas-list
+        [vendas]="Vendas"
         (add)="onAdd()"
         (edit)="onEdit($event)"
         (delete)="onDelete($event)">
-      </app-produtos-list>
+      </app-vendas-list> -->
     } @else {
       <div class="loading-spinner">
         <mat-spinner></mat-spinner>
